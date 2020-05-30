@@ -4665,6 +4665,11 @@ function initState (vm) {
   }
 }
 
+/**
+ * 初始化 props
+ * @param vm
+ * @param propsOptions
+ */
 function initProps (vm, propsOptions) {
   var propsData = vm.$options.propsData || {};
   var props = vm._props = {};
@@ -4689,6 +4694,7 @@ function initProps (vm, propsOptions) {
           vm
         );
       }
+      // props定义响应
       defineReactive$$1(props, key, value, function () {
         if (!isRoot && !isUpdatingChildComponent) {
           warn(
@@ -4701,6 +4707,7 @@ function initProps (vm, propsOptions) {
         }
       });
     } else {
+      // props定义响应
       defineReactive$$1(props, key, value);
     }
     // static props are already proxied on the component's prototype
